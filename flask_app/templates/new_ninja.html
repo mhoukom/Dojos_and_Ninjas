@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>New Ninja</title>
+</head>
+<body>
+    <div class="container pt-5">
+        <h1>New Ninja</h1>
+        <form action="/ninjas/create" method="post">
+            <p class="mb-3 mt-3">Dojo:</p>
+                <select name="dojo_id">
+                    <option value="select">--Select One--</option>
+                    {% for dojo in all_dojos %}
+                        <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+                    {% endfor %}
+                </select>
+            <p class="mb-3 mt-3">
+                First Name:
+                <input type="text" class="form-control mt-3" name="first_name">
+            </p>
+            <p class="mb-3 mt-3">
+                Last Name:
+                <input type="text" class="form-control mt-3" name="last_name">
+            </p>
+            <p class="mb-3 mt-3">
+                Age:
+                <input type="text" class="form-control mt-3" name="age">
+            </p>
+            <button class="btn btn-secondary mt-3 mb-4">Create</button>
+        </form>
+        <a href="/dojos">Home</a>
+    </div>
+</body>
+</html>
